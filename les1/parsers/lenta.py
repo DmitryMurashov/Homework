@@ -28,7 +28,7 @@ async def parse_page(html: str) -> list:
     return json_news
 
 
-async def parse_html(page_count: int) -> None:
+async def get_news(page_count: int) -> None:
     data = []
     url = f"https://lenta.ru/parts/news/"
     tasks = [async_get_html(url + str(page)) for page in range(1, page_count + 1)]
@@ -42,4 +42,4 @@ async def parse_html(page_count: int) -> None:
 
 if __name__ == '__main__':
     loop = asyncio.new_event_loop()
-    loop.run_until_complete(parse_html(10))
+    loop.run_until_complete(get_news(10))

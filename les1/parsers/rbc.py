@@ -28,7 +28,7 @@ def get_html(url: str) -> str:
         return driver.page_source
 
 
-def parse_html() -> None:
+def get_news() -> None:
     url = "https://www.rbc.ru"
     soup = bs4.BeautifulSoup(get_html(url), 'html.parser')
 
@@ -79,4 +79,4 @@ def parse_html() -> None:
 
 
 if __name__ == '__main__':
-    parse_html()
+    get_news()
